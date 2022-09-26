@@ -3,4 +3,5 @@
 # Ignore node_module so it does not get pushed
 node_module
 .env
-/y/
+/node_module
+/node_module/
