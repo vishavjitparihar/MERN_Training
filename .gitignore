@@ -3,5 +3,4 @@
 # Ignore node_module so it does not get pushed
 node_module
 .env
-/node_module
-/node_module/
+Day_4/test-driven-development/node_modules
