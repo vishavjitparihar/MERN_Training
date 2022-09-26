@@ -3,3 +3,4 @@
 # Ignore node_module so it does not get pushed
 node_module
 .env
+x/y
