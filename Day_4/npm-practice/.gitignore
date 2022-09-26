@@ -1,0 +1,5 @@
+# Anything in this file will not get pushed to GitHub
+
+# Ignore node_module so it does not get pushed
+node_module/
+.env
