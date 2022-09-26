@@ -1,6 +1,6 @@
 # Anything in this file will not get pushed to GitHub
 
 # Ignore node_module so it does not get pushed
-node_module
-.env
+
 Day_4/test-driven-development/node_modules
+Day_4/npm-practice/node_modules
