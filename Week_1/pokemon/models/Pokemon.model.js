@@ -48,8 +48,12 @@ const pokemonSchema = new Schema({
     types: {
         // type indicates the type to store the data as
         type: [String],
-        min: [1, 'Pokemon must have at least 1 type'], // If an array of 0 is passed, this validator goes off
-        max: [2, 'Pokemon must only have a maximum of 2 types'] // The string is the error message
+
+        //validate allows us to write our own validation function
+        validate: [ pokemonTypes => pokemonTypes.lenghth >= 1 && pokemonTypes.lenghth <= 2, 'Pokemon must only have one or two types']
+        //this only works for string, not numbers
+        // min: [1, 'Pokemon must have at least 1 type'], // If an array of 0 is passed, this validator goes off
+        // max: [2, 'Pokemon must only have a maximum of 2 types'] // The string is the error message
     },
     isLegendary: Boolean,
     imageUrl: String

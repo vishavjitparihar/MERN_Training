@@ -25,4 +25,17 @@ const findPokemonByID = async (id) => {
     }
 }
  
-module.exports = { findAllPokemon, findPokemonByID };
+
+const createPokemon = async pokemon => {
+    try {
+        // we will use the model and create a new instance of it
+        //This alone doen not save the entity
+        pokemon = new Pokemon(pokemonToSave); //this runs all my validation logic
+        //pokemon.name = 'fred'; //this change would be saved
+        pokemon.save(); //take the instance and save it
+        return pokemon; 
+    } catch (err) {
+        throw err;
+    }
+}
+module.exports = { findAllPokemon, findPokemonByID, createPokemon };

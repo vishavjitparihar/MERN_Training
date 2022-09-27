@@ -11,7 +11,7 @@
  */
 
 const router = require('express').Router();
-const { findAllPokemon, findPokemonByID } = require('../controllers/pokemon.controller.js');
+const { findAllPokemon, findPokemonByID, createPokemon } = require('../controllers/pokemon.controller.js');
 
 
 
@@ -38,6 +38,16 @@ router.get('/:id', async (req, res) => {
 })
 
 //CREATE A POKEMON
+// POST 
+router.post( '/', async (req, res) => {
+    try {
+        //for post request we send the data through the body section of postmate
+        const pokemon = await createPokemon(req.body);
+        res.status(201).json(pokemon);
+    } catch (err) {
+        res.status(err?. starus ?? 500).json(err);
+    }
+})
 
 
 //UPDATE A POKEMON
