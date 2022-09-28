@@ -4,6 +4,7 @@ const Pokemon = require('../models/Pokemon.model.js'); // Import the Pokemon mod
 // Find all Pokemon
 const findAllPokemon = async () => await Pokemon.find(); // This returns all Pokemon
 
+// Find Pokemon by id
 const findPokemonById = async id => {
     try {
         // You might think not finding it returns a rejected Promise
@@ -19,6 +20,7 @@ const findPokemonById = async id => {
     }
 };
 
+// Creating a new Pokemon
 const createPokemon = async pokemonToSave => {
     try {
         // We'll use the model and create a new instance of it
@@ -32,14 +34,17 @@ const createPokemon = async pokemonToSave => {
     }
 }
 
+// Updating an existing Pokemon
 const updatePokemon = async (id, pokemonToUpdate) => {
-    try {
+    try{
         await Pokemon.findByIdAndUpdate(id, pokemonToUpdate);
+        return 'Updated!'
     } catch (err) {
-        throw { status: 400, msg: err };
+        throw { status: 400, msg: err }
     }
-};
+}
 
-const deletePokemonById = async id => await Pokemon.findByIdAndDelete(id);
+// Deleting an existing Pokemon
+const deletePokemonById = async id =>  await Pokemon.findByIdAndDelete(id);
 
 module.exports = { findAllPokemon, findPokemonById, createPokemon, updatePokemon, deletePokemonById };

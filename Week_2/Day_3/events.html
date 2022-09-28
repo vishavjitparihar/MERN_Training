@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+    <style>
+        .conatiner{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .box{
+            height: 100px;
+            width: 100px;
+            margin: 10px 0px;
+            background-color: black;
+        }
+    </style>
+
+    <script>
+        let currCount = 0;
+        //everything in here is JS
+        const incrementCount = () => {
+    
+            console.log('Inside Increment');
+            
+            // document object our way of accessing the DOM
+            // DOM stands fir Document Object Model. It is a tree repersenatation of the HTML Structire
+
+            const countSpan = document.getElementById('count');
+            console.log(countSpan);
+            currCount++;
+            countSpan.innerText = currCount;
+
+        }
+
+        const toogleColor = () => {
+            // We need to grab all boxes with a given class name
+            let boxes = document.getElementsByClassName('box');
+            for(let box of boxed) {
+                // This grabs the backgroud-color property that the box is currently styled to
+                const currColor = box.style.backgroundColor;
+                if(currColor === 'blue'){
+                    box.style.backgroundColor = 'black';
+                } else {
+                    box.style.backgroundColor = 'blue';
+                }
+            }
+        }
+
+        const createBox = () =>{
+            // To create a new element, we must use document.cresteElement()
+
+            const newBox = document.createElement('div');
+            // By giving a class of box, my css will style it and the toggleColor function will find it
+            newBox.className = 'box';
+
+            // this elemnet only exist in JS so far
+            // I need to grab conatiner, and add this newBox to the end of the list
+
+            const container = document.getElementById('box-container');
+            container
+        }
+    </script>
+</head>
+<body>
+    <div><strong>Current Count:</strong> <span id="count">0</span></div>
+    <!-- To tell our button what to do - we need JS -->
+    <button onclick="incrementCount()">Increment</button>
+    <button onclick="toogleColor()">Change Box color</button>
+    <button onclick="createBox()">Create a new Box</button>
+
+    <div class="container">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+    
+</body>
+</html>

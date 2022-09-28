@@ -13,13 +13,13 @@
  const mongoose = require('mongoose');
  
  // Validate ObjectId middleware
- const validateObjectId = (req, res, next) => {
-     if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
-         res.status(204).send(); // Send back the response early
-     } else {
-         next(); // This calls the standard route for GET/POST/PUT/DELETE with (req, res)
-     }
- }
+const validateObjectId = (req, res, next) => {
+    if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+        res.status(204).send(); //send back the status early
+    } else {
+        next(); //this calls the standard route of GET/POST/PUT/DELETE
+    }
+}
  
  // GET ALL POKEMON
  // /pokemon
@@ -54,25 +54,25 @@
  });
  
  // UPDATE A POKEMON
- router.put('/:id', validateObjectId, async (req, res) => {
-     try {
-         // For PUT requests, the data to update comes through the request body as well
-         await updatePokemon(req.params.id, req.body);
-         res.send();
-     } catch (err) {
-         res.status(err?.status ?? 500).json(err);
-     }
- });
+router.put('/:id', validateObjectId, async(req, res) => {
+    try { 
+        // For PUT request, the data to update comes through the request body as well
+        const pokemon = await updatePokemon(req.params.id, req.body);
+        res.send();
+    } catch (err) {
+        res.status(err?.status ?? 500).json(err);
+    }
+})
  
- // DELETE A POKEMON
- router.delete('/:id', validateObjectId, async (req, res) => {
-     try {
-         await deletePokemonById(req.params.id);
-         res.send(); // 200 OK is good
-     } catch (err) {
-         res.status(err?.status ?? 500).json(err);
-     }
- });
- 
+
+// DELETE A POKEMON
+router.delete('/:id', validateObjectId, async(req, res) => {
+    try {
+        await deletePokemonById(req.params.id);
+        res.send();
+    } catch (err) {
+        res.status(err?.status ?? 500).json(err);
+    }
+})
  
  module.exports = router;
