@@ -3,5 +3,6 @@
 # Ignore node_module so it does not get pushed
 
 .DS_Store
+DS_Store
 node_modules
-.env
+env
