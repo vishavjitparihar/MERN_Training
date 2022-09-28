@@ -5,9 +5,10 @@ require('dotenv').config(); // This loads the .env file contents into the Node e
 const app = express();
 app.use(express.json());
 
-//importing routes
+// Routes
 const pokemonRouter = require('./routes/pokemon.route.js');
 app.use('/pokemon', pokemonRouter);
+//app.use('/trainers', require('./routes/trainer.route.js')); // You can do it on one line
 
 const connectToMongo = async () => {
     try {

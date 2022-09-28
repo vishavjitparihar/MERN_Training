@@ -1,62 +1,64 @@
-//This file will be our data model for a pokemon document
-
 /**
  * Mongoose is a wrapper around the native MongoDB driver for Nodejs
- * It abstracts some of the lower level queries and ands some new functionality
+ * It abstracts some of the lower level queries and adds some new functionality
  * 
- * Mongoose enforces a schema to MongoDB
- * MongoDB is schemakess, but Mongoose adds a schema to it
+ * Mongoose enforces a schema to MongoDB documents
+ * MongoDB is schemaless, but Mongoose adds a schema to it
  * 
- * The reason we do this is simply to restrict what is allowed to be submitted
+ * The reason we do this is simply to restrict what's allowed to be submitted
  */
 
+// This file will be our data model for a Pokemon document
 
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema; //Schema is a class that we can create our DB schemas with
+const Schema = mongoose.Schema; // Schema is a class that we can create our DB schemas with
 
 /**
  * What properties do our Pokemon have?
  * 
- * Pokemon Name
  * Pokedex Number
- * Pokedex Entry
+ * Pokedex Description
+ * Pokemon Name
  * Types
  * isLegendary
  */
-
-
 const pokemonSchema = new Schema({
-    //Mongoose gives you a _id if you don't specify one
-    //BUT you can always define your own if you have something else you'd want to use
-    // _id: Number
+    // Mongoose gives you a _id if you don't specify one
+    // BUT you can always define your own if you have somethind else you'd want to use
+    // _id: Number,
 
     // Inside here, I will define my document schema
     name: String, // If I don't open the object syntax, the value is the type
+    /**
+     * Equivalent to above
+     * name: {
+     *  type: String
+     * }
+     */
     pokedex: {
         number: {
             type: Number,
-            required: false
+            required: true
         },
-        description: {
-            type: String,
-            required: false
+        description: String
     },
-    //type indicate the type to store the data as
     types: {
+        // type indicates the type to store the data as
         type: [String],
-        min: [1, 'Must submit at least 1 type'],
-        max: [2, "Must only have a maximum of 2 types"]
+        // validate allows us to write our own validation function
+        validate: [pokemonTypes => pokemonTypes.length >= 1 && pokemonTypes.length <= 2, 'Pokemon must only have 1 or 2 types']
+
+        // This only works for strings
+        // min: [1, 'Pokemon must have at least 1 type'], // If an array of 0 is passed, this validator goes off
+        // max: [2, 'Pokemon must only have a maximum of 2 types'] // The string is the error message
     },
     isLegendary: Boolean,
-    imageURL: String
-    }
+    imageUrl: String
 });
 
-
-//Now take the schema and transform into a model
-//                              Name        Schema          What i actually want it called in MongoDB
+// Now take the schema and transform into a model
+//                              Name         Schema      What I actually want it called in MongoDB
 const Pokemon = mongoose.model('Pokemon', pokemonSchema, 'Pokemon');
 
-//export the module
-//this Pokemon model we will use to construct queries for this collection
+// This Pokemon model we will use to construct queries for this collection
 module.exports = Pokemon;
