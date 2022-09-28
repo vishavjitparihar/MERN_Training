@@ -2,10 +2,6 @@
 
 # Ignore node_module so it does not get pushed
 
-Day_4/test-driven-development/node_modules
-Day_4/npm-practice/node_modules
-Day_5/node_modules
-pokemon/node_modules
 .DS_Store
-z
 node_modules
+.env
