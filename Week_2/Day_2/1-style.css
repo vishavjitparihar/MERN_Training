@@ -1,0 +1,10 @@
+/*
+This entire file is CSS
+    The advantage of this file is that it is reusable across many pages
+*/
+
+
+/* ID Selector. Selects the id of second-element */
+#second-element{
+    text-align: right;
+}

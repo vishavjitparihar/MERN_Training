@@ -1,0 +1,14 @@
+.box {
+    /* padding: 10px; */
+    border: 1px solid black;
+    margin: 50px;
+
+    /* If i want only bottom margin */
+    /* margin-bottom: 50px; */
+
+    /* If i want padding on left and right only */
+    /* padding: 0px, 50px; 0px on top and bottom, 50px on left and right */
+    /* padding: 0px, 50px, 10px; 0px on top, 50px on left and right, 10px on bottom */
+    /* padding: 0px, 50px, 10px, 20px; 0px on top, 50px on right, 10px on bottom, 20px on right */
+
+}
