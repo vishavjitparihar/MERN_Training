@@ -3,6 +3,8 @@
 - Component based system
 - Utilizes the Virtual DOM
 
+- React's idea is that of an unopiniated framework. They supply the primitive (rendering) and you (the community) supply the feature/framework-esque behavior
+
 ## Virtual DOM
 - React's core philosphy is that the user interface (UI) should be a function of the application's state
     - UI = f(state)
@@ -26,7 +28,8 @@
 
 ## Components
 - Allows us to organize our logic into bits of reusable code that each hangle their own internal state
-- Allows for a layer of sepration in our app where each
+- Allows for a layer of sepration in our app where each component hanles their own state
+- React will rerender your component when it's state has changed
 
 ## Webpack
 - creates-react-app (CRA) generates and menages a webpack config for you

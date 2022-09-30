@@ -4,15 +4,17 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { App } from './App';
 import SomeComponent,{ x, x as x2 } from './SomeComponent' //.js or .jsx is optional
 
-
+//this file App is incharge of mounting the app and setting up any other providers
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 
 
   // <React.StrictMode>
   <>
+  <App />
   <SomeComponent />
   <SomeComponent />
   <SomeComponent />
