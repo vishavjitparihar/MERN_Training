@@ -1,21 +1,25 @@
 // Works the same as require, it's just nicre synatx
-// You may use import synatx if your project is module
+// You may use import synatx if your project is a module
 // This project is a module thanks to a tool called webpack
 
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import SomeComponent,{ x, x as x2 } from './SomeComponent' //.js or .jsx is optional
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+
+
+  // <React.StrictMode>
+  <>
+  <SomeComponent />
+  <SomeComponent />
+  <SomeComponent />
+  <SomeComponent />
+  </>
+  // {/* <App /> */}
+  // </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+
