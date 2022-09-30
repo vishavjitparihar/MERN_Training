@@ -89,8 +89,26 @@ class ClassCounter extends React.Component {
      */
 
     componentDidMount() {
+        //this was a good place to fetch data
+        console.log('component is born');
+        // setInterval(() => {
+        //     console.log(new Date());
+        // }, 1000);       //if not cleaned up, this inteval will continue to run 
+    }
 
-}
+
+    /**
+     * This function is called jsut before a componnet will be unmounted from the DOM
+     */
+    
+    componentWillUnmount() {
+        //This is where all cleanup should go
+
+        //If i was doing web sockets, sever connection here
+        //if i established any intervals or events listeners, cancel them here
+
+        console.log('Component is Unborn!');
+    }
 }
 
 
