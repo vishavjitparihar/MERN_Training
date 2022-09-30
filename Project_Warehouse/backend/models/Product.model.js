@@ -7,7 +7,7 @@
  * isRefurbished - false
  * Tag - Mobile Phone
  * * isCellular - true
- * Serial ID - AMP1411BL512FT00
+ * Serial ID - AMP1411BLK512FT000
  * 
  */
 
@@ -16,16 +16,16 @@
  * 
  * Every product will have a unique serial ID
  * Serial ID is a combination of the physical specs of the product
- * In our example we have AMP1411BL512FT00
+ * In our example we have AMP1411BLK512FT0000
  * A - Apple
  * MP - Mobile Phone
  * 14 - Product Number (this will be same for all the iPhone 14s)
  * 11 - Pro Max (00-Base 14; 01-Base 14 Max; 10-Pro 14; 11-Pro 14 Max)
- * BL - Color Black
+ * BLk - Color Black
  * 512 - Storage
  * F - Not Refurbished
  * T - is Cellular
- * 00 - Just in case
+ * 000 - No carrier lock (000-No Lock, 001-ATT, 010-Verizon, 011-Sprint, 100-TMobile)
  */
 
 
@@ -38,13 +38,14 @@ const Schema = mongoose.Schema; //Schema is a class that we can create our DB sc
 const productSchema = new Schema({
     //we will define our schema in here
 
-    //_id: String,
+    _id: String,
     model: String,
     color: String,
     storage: Number,
     isRefurbished: Boolean,
     tag: String,
     isCellular: Boolean,
+    carrierLock: String,
     image: String
 })
 

@@ -18,6 +18,16 @@ const findProductByID = async (id) => {
     return product;
 };
 
+const createProduct = async (productToBeSaved) => {
+    try {
+        //we will use the model file and create instance of it
+        const product = new Product(productToBeSaved);
+        await product.save(); //this will save the instance of Product to the database
+        return product;
+    } catch (err) {
+        throw err;
+    }
+}
 
 
-module.exports = { findAllProduct, findProductByID };
+module.exports = { findAllProduct, findProductByID, createProduct };
