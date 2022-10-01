@@ -22,6 +22,8 @@ import React from "react";
 // For a class to be seen as a React component
 class ClassCounter extends React.Component {
 
+    #dateIntervalKey;
+
     constructor() {
         super();
 
@@ -91,14 +93,14 @@ class ClassCounter extends React.Component {
     componentDidMount() {
         //this was a good place to fetch data
         console.log('component is born');
-        // setInterval(() => {
+        // this.#dateIntervalKey=setInterval(() => {
         //     console.log(new Date());
         // }, 1000);       //if not cleaned up, this inteval will continue to run 
     }
 
 
     /**
-     * This function is called jsut before a componnet will be unmounted from the DOM
+     * This function is called jsut before a componet will be unmounted from the DOM
      */
     
     componentWillUnmount() {
@@ -108,6 +110,20 @@ class ClassCounter extends React.Component {
         //if i established any intervals or events listeners, cancel them here
 
         console.log('Component is Unborn!');
+        clearInterval(this.#dateIntervalKey);
+    }
+
+
+    /**
+     * This component is called whenever the component updates
+     * 
+     * prevProps is the old copy of the props passed
+     * prevState is the old copy of the state
+     */
+
+    componentDidUpdate(prevProps, prevState) {
+        console.log('Old count: ' + prevState.count);
+        console.log('New count: ' + this.state.count);
     }
 }
 
