@@ -13,14 +13,14 @@ root.render(
 
 
   <React.StrictMode>
-  <>
-  <App />
-  <SomeComponent />
-  <SomeComponent />
-  <SomeComponent />
-  <SomeComponent />
-  </>
-  // {/* <App /> */}
+    <>
+      <App />
+      {/* <SomeComponent />
+      <SomeComponent />
+      <SomeComponent />
+      <SomeComponent /> */}
+    </>
+    {/* <App /> */}
   </React.StrictMode>
 );
 

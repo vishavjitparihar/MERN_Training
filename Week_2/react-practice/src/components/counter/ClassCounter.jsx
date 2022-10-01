@@ -20,7 +20,7 @@
 import React from "react";
 
 // For a class to be seen as a React component
-class ClassCounter extends React.Component {
+export class ClassCounter extends React.Component {
 
     #dateIntervalKey;
 
@@ -51,6 +51,7 @@ class ClassCounter extends React.Component {
          */
 
         //update state to be a new object with count set to the old count+1
+
         this.setState({count: this.state.count+1});
     }
 
@@ -72,6 +73,7 @@ class ClassCounter extends React.Component {
                 <h3>Count: {this.state.count}</h3>
                 <button onClick={this.increment}>+</button>
                 <button onClick={this.decriment}>-</button>
+                
             </>
         )
     }
@@ -127,5 +129,3 @@ class ClassCounter extends React.Component {
     }
 }
 
-
-export default ClassCounter;

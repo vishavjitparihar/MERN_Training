@@ -6,6 +6,7 @@ const SomeComponent = () => {
         <div id="my-special-div">Hello World</div>
         <p>some text</p>
         <div>Goodbye</div>
+        <div> ---- </div>
     </>
     )
 }
