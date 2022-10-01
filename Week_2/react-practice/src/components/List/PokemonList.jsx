@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { PokemonForm } from '../Form/PokemonForm';
 
 // Axios allows us to fire off HTTP request to some API
 // Before Axios/Fetch devs had to rely on XMLHttpRequest
@@ -32,20 +33,23 @@ export const PokemonList = () => {
      }, []);
 
      return (
-         <table>
-             <thead>
-                 <tr>
-                     <th>Name</th>
-                     <th>Pokedex Number</th>
-                     <th>Type 1</th>
-                     <th>Type 2</th>
-                     <th>Image</th>
-                 </tr>
-             </thead>
-             <tbody>
-                 {pokemonList.map(pokemon => <Pokemon key={pokemon._id} pokemon={pokemon}/>)}
-             </tbody>
+        <>
+            <PokemonForm setPokemonList={setPokemonList}/>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Pokedex Number</th>
+                        <th>Type 1</th>
+                        <th>Type 2</th>
+                        <th>Image</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {pokemonList.map(pokemon => <Pokemon key={pokemon._id} pokemon={pokemon}/>)}
+                </tbody>
 
-         </table>
+            </table>
+         </>
      );
  }

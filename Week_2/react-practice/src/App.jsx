@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ClassCounter, FunctionCounter, RefCounter} from './components/counter';
 import { Article } from './components/Article'
 import { SimpleList } from "./components/List/SimpleList";
-import { Pokemon, PokemonList } from "./components/List/PokemonList";
+import { PokemonList } from "./components/List/PokemonList";
 import './index.css';
 
 

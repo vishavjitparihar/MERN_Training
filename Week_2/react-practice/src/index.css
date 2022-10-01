@@ -2,3 +2,16 @@
     text-align: center;
 
 }
+
+.pokemon-form {
+    margin: 20px 5px;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    border: 2px solid black;
+}
+
+.pokemon-form > div {
+    display: flex;
+    justify-content: space-between;
+}
