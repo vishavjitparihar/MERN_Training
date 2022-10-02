@@ -1,1 +1,1 @@
-//look at Sean's github
+export const Body = ({children}) => <p>{children}</p>

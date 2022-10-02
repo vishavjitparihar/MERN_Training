@@ -1,27 +1,15 @@
-// The first parameter to a function is its "prop"
-// <Article titke = "My Article" author = "Sean Carter" />
-// The props will be an object like { title: "My Article", author: "Sean Carter"}
+// The first parameter to a function is its "props"
+// <Article title="My Article" author="Sean Carter" />
+// The props will be an object like { title: "My Article", author: "Sean Carter" }
 
-export const Article = (props) => {
+import { Body, Header, Footer } from "./"; // import from './index.js'
+
+export const Article = ({title="Default Title Here", author, publishDate, text, children}) => {
     return (
         <article>
-            <header>
-                <h1>{props.title}</h1>
-                <h3>Author: {props.author}</h3>
-            </header>
-
-            <p>
-                {props.children}
-            </p>
-
-            <footer>
-                <h6>Published Date: {props.publishDates}</h6>
-            </footer>
+            <Header title={title} author={author} />
+            <Body>{children}</Body>
+            <Footer publishDate={publishDate} />
         </article>
-    )
-}
-
-
-
-//instead of using props - sean used destructuring
-//look at his github
+    );
+};

@@ -1,27 +1,24 @@
-// component in React must start wiyh an uppercase character and should be pascal case
+// Components in React MUST start with an uppercase character and SHOULD be pascal case
 
-const SomeComponent = () => {
+// Function component. The return from the function is what will be rendered
+export const SomeComponent = () => {
     return (
-        <>
-        <div id="my-special-div">Hello World</div>
-        <p>some text</p>
-        <div>Goodbye</div>
-        <div> ---- </div>
+    <>
+        <div>Hello World!</div>
+        <p>Some text</p>
+        <div>Goodbye!</div>
     </>
-    )
+    );
 }
 
+// Regular export and to obtain it, you must destructure by name
+// "Named export"
+export const x = 2;
+// module.exports = { x };
 
-//export syntax
-// module.expoorts = SomeComponent; wil not work as we will need to export the function name at the begining and then also destructure the component name
-//just to give an example how module.exports work in REACT
-
-//Regular export and to obtain it, you must destructire by name
-//"named export"
-export const x = 2
-
-
-
-//default exports allow us to call it whatever we want in other file. Does not use destructure synatx
-//There may only be one default export per file
+// export syntax
+// default exports allow us to call it whatever we want in the other file. Does not use destructure syntax
+// There may ONLY BE ONE default export per file
 export default SomeComponent;
+
+// module.exports = SomeComponent;
